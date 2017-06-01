@@ -71,17 +71,14 @@ public class MainActivity extends AppCompatActivity {
             fIn.read(buf);
             diaryStr=new String(buf).trim();
             but.setText("수정 하기");
+            fIn.close();
         } catch (FileNotFoundException e) {
             edit.setText("일기가 존재하지 않습니다~~!"); //파일이 없을때
             but.setText("새로저장");
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
-        try {
-            fIn.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
         return diaryStr;
     }
